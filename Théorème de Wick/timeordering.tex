@@ -120,8 +120,8 @@ Ce qui nous permet d'écrire d'après le cours:
 \begin{equation}    
 \begin{split}
 \mathcal{T}\{\phi_{x}\phi_{y}\}=\Theta(x^{0}-y^{0})([\phi_{x}^{+},\phi_{y}^{-}] 
-+N'\{\phi_{x}\phi_{y}\})+\Theta(y^{0}-x^{0})([\phi_{y}^{+},\phi_{x}^{-}]
-+N'\{\phi_{y}\phi_{x}\})
++N\{\phi_{x}\phi_{y}\})+\Theta(y^{0}-x^{0})([\phi_{y}^{+},\phi_{x}^{-}]
++N\{\phi_{y}\phi_{x}\})
 \end{split}
 \end{equation}
 
@@ -133,41 +133,41 @@ Aussi que:
 
 On peut identifier les équations (3) et (4) pour obtenir:
 \begin{equation}
-\mathcal{T}\{\phi_{x}\phi_{y}\}= \Delta_{F}(x-y)\mathds{1}+N'\{\phi_{x}\phi_{y}\}
-+N'\{\phi_{y}\phi_{x}\}
+\mathcal{T}\{\phi_{x}\phi_{y}\}= \Delta_{F}(x-y)\mathds{1}+N\{\phi_{x}\phi_{y}\}
++N\{\phi_{y}\phi_{x}\}
 \end{equation}
 
-Où on définit $N'\{\phi_{y}\phi_{x}\}$ comme le normal ordering de $\phi_{y}\phi_{x}$
-sans les termes $\phi_{x}^{+}\phi_{y}^{-}$ et avec un terme en plus $\phi_{y}^{-}\phi_{x}^{+}$.
+Où on définit $N\{\phi_{y}\phi_{x}\}$ comme le normal ordering de $\phi_{y}\phi_{x}$
+
 
 
 Ainsi chaque terme de l'équation (2) peut s'écrire comme suit:
 \begin{align*}
 \Delta_{F}(x_{1}-x_{2})\mathds{1}=
-\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N'\{\phi_{1}\phi_{2}\}
--\Theta(x_{2}-x_{1})N'\{\phi_{2}\phi_{1}\}\\
+\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N\{\phi_{1}\phi_{2}\}
+-\Theta(x_{2}-x_{1})N\{\phi_{2}\phi_{1}\}\\
 \Delta_{F}(x_{1}-x_{3})\mathds{1}=
-\mathcal{T}\{\phi_{1}\phi_{3}\}-\Theta(x_{1}-x_{3})N'\{\phi_{1}\phi_{3}\}
--\Theta(x_{3}-x_{1})N'\{\phi_{3}\phi_{1}\}\\
+\mathcal{T}\{\phi_{1}\phi_{3}\}-\Theta(x_{1}-x_{3})N\{\phi_{1}\phi_{3}\}
+-\Theta(x_{3}-x_{1})N\{\phi_{3}\phi_{1}\}\\
 \Delta_{F}(x_{1}-x_{4})\mathds{1}=
-\mathcal{T}\{\phi_{1}\phi_{4}\}-\Theta(x_{1}-x_{4})N'\{\phi_{1}\phi_{4}\}
--\Theta(x_{4}-x_{1})N'\{\phi_{4}\phi_{1}\}\\
+\mathcal{T}\{\phi_{1}\phi_{4}\}-\Theta(x_{1}-x_{4})N\{\phi_{1}\phi_{4}\}
+-\Theta(x_{4}-x_{1})N\{\phi_{4}\phi_{1}\}\\
 \Delta_{F}(x_{2}-x_{3})\mathds{1}=
-\mathcal{T}\{\phi_{2}\phi_{3}\}-\Theta(x_{2}-x_{3})N'\{\phi_{2}\phi_{3}\}
--\Theta(x_{3}-x_{2})N'\{\phi_{3}\phi_{2}\}\\
+\mathcal{T}\{\phi_{2}\phi_{3}\}-\Theta(x_{2}-x_{3})N\{\phi_{2}\phi_{3}\}
+-\Theta(x_{3}-x_{2})N\{\phi_{3}\phi_{2}\}\\
 \Delta_{F}(x_{2}-x_{4})\mathds{1}=
-\mathcal{T}\{\phi_{2}\phi_{4}\}-\Theta(x_{2}-x_{4})N'\{\phi_{2}\phi_{4}\}
--\Theta(x_{4}-x_{2})N'\{\phi_{4}\phi_{2}\}\\
+\mathcal{T}\{\phi_{2}\phi_{4}\}-\Theta(x_{2}-x_{4})N\{\phi_{2}\phi_{4}\}
+-\Theta(x_{4}-x_{2})N\{\phi_{4}\phi_{2}\}\\
 \Delta_{F}(x_{3}-x_{4})\mathds{1}=
-\mathcal{T}\{\phi_{3}\phi_{4}\}-\Theta(x_{3}-x_{4})N'\{\phi_{3}\phi_{4}\}
--\Theta(x_{4}-x_{3})N'\{\phi_{4}\phi_{3}\}\\
+\mathcal{T}\{\phi_{3}\phi_{4}\}-\Theta(x_{3}-x_{4})N\{\phi_{3}\phi_{4}\}
+-\Theta(x_{4}-x_{3})N\{\phi_{4}\phi_{3}\}\\
 \end{align*}
 
 Prenons pour exemple le second terme du membre de droite de l'équation (2):
 \begin{equation*}
 \Delta_{F}(x_{1}-x_{2})\mathds{1}N\{\phi_{3}\phi_{4}\}=
-(\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N'\{\phi_{1}\phi_{2}\}
--\Theta(x_{2}-x_{1})N'\{\phi_{2}\phi_{1}\})(N\{\phi_{3}\phi_{4}\})
+(\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N\{\phi_{1}\phi_{2}\}
+-\Theta(x_{2}-x_{1})N\{\phi_{2}\phi_{1}\})(N\{\phi_{3}\phi_{4}\})
 \end{equation*}
 
 Or de par la définition du normal ordering, on sait que les termes contenant les normal ordering disparaissent sous $\braket{0}{.|0}$, donc on a:
@@ -179,18 +179,18 @@ Donc si on effectue le calcul $\braket{0}{.\mathcal{T}\{\phi(x_1)\phi(x_2)\phi(x
 \begin{equation}
 \begin{split}
 &\bra{0}\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}\ket{0}\\
-&=\bra{0}(\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N'\{\phi_{1}\phi_{2}\}
--\Theta(x_{2}-x_{1})N'\{\phi_{2}\phi_{1}\})\times{}\\
-&\quad(\mathcal{T}\{\phi_{3}\phi_{4}\}-\Theta(x_{3}-x_{4})N'\{\phi_{3}\phi_{4}\}
--\Theta(x_{4}-x_{3})N'\{\phi_{4}\phi_{3}\})\ket{0}\\
-&+\bra{0}(\mathcal{T}\{\phi_{1}\phi_{3}\}-\Theta(x_{1}-x_{3})N'\{\phi_{1}\phi_{3}\}
--\Theta(x_{3}-x_{1})N'\{\phi_{3}\phi_{1}\})\times{}\\
-&\quad(\mathcal{T}\{\phi_{2}\phi_{4}\}-\Theta(x_{2}-x_{4})N'\{\phi_{2}\phi_{4}\}
--\Theta(x_{4}-x_{2})N'\{\phi_{4}\phi_{2}\})\ket{0}\\
-&+\bra{0}(\mathcal{T}\{\phi_{1}\phi_{4}\}-\Theta(x_{1}-x_{4})N'\{\phi_{1}\phi_{4}\}
--\Theta(x_{4}-x_{1})N'\{\phi_{4}\phi_{1}\})\times{}\\
-&\quad(\mathcal{T}\{\phi_{2}\phi_{3}\}-\Theta(x_{2}-x_{3})N'\{\phi_{2}\phi_{3}\}
--\Theta(x_{3}-x_{2})N'\{\phi_{3}\phi_{2}\})\ket{0}
+&=\bra{0}(\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N\{\phi_{1}\phi_{2}\}
+-\Theta(x_{2}-x_{1})N\{\phi_{2}\phi_{1}\})\times{}\\
+&\quad(\mathcal{T}\{\phi_{3}\phi_{4}\}-\Theta(x_{3}-x_{4})N\{\phi_{3}\phi_{4}\}
+-\Theta(x_{4}-x_{3})N\{\phi_{4}\phi_{3}\})\ket{0}\\
+&+\bra{0}(\mathcal{T}\{\phi_{1}\phi_{3}\}-\Theta(x_{1}-x_{3})N\{\phi_{1}\phi_{3}\}
+-\Theta(x_{3}-x_{1})N\{\phi_{3}\phi_{1}\})\times{}\\
+&\quad(\mathcal{T}\{\phi_{2}\phi_{4}\}-\Theta(x_{2}-x_{4})N\{\phi_{2}\phi_{4}\}
+-\Theta(x_{4}-x_{2})N\{\phi_{4}\phi_{2}\})\ket{0}\\
+&+\bra{0}(\mathcal{T}\{\phi_{1}\phi_{4}\}-\Theta(x_{1}-x_{4})N\{\phi_{1}\phi_{4}\}
+-\Theta(x_{4}-x_{1})N\{\phi_{4}\phi_{1}\})\times{}\\
+&\quad(\mathcal{T}\{\phi_{2}\phi_{3}\}-\Theta(x_{2}-x_{3})N\{\phi_{2}\phi_{3}\}
+-\Theta(x_{3}-x_{2})N\{\phi_{3}\phi_{2}\})\ket{0}
 \end{split}
 \end{equation}
 
