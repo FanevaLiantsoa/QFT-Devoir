@@ -1,0 +1,226 @@
+
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{braket} 
+\usepackage{physics} 
+\usepackage{tikz}
+\usepackage{dsfont}
+\usetikzlibrary{positioning}
+\usepackage{etoolbox}
+\usepackage{simpler-wick} %POUR LES CONTRACTIONS DE WICK
+
+\title{DEVOIR QFT: Théorème de Wick}
+\author{
+    % D'abord vos informations personnelles
+    RAZAFIMAHERY Faneva Liantsoa \\
+    \medskip % Un petit espace
+    \normalsize Master 1 -Physique des Hautes Energies \\
+    \medskip
+    \normalsize Université d'Antananarivo  \\
+    %\vspace{1cm} %  pour séparer verticalement bro
+    % Ensuite, on insère le titre manuellement
+    %\Large \textbf{DEVOIR QFT: Théorème de Wick} \\ si on veut mettre le titre ici et en gras
+    % \Huge C'est grand et \LARGE ou \Large c plus petit
+}
+\date{6 Novembre 2025} 
+
+
+\begin{document}
+\maketitle
+
+\underline{Question}: Montrer que l'on a:
+
+
+
+%\subsection*{Placeholders for contractions}
+
+
+\begin{equation*}
+\begin{split}
+\mathcal{T}\{\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\}
+&=\mathcal{T}\{\phi(x_1)\phi(x_2)\}\mathcal{T}\{\phi(x_3)\phi(x_4)\}
++\mathcal{T}\{\phi(x_1)\phi(x_2)\}\mathcal{T}\{\phi(x_3)\phi(x_4)\}\\
+&+\mathcal{T}\{\phi(x_1)\phi(x_2)\}\mathcal{T}\{\phi(x_3)\phi(x_4)\}
+\end{split}
+ \end{equation*}
+
+\underline{Réponse}:
+On connait le théorème de Wick qui dit que:
+\begin{equation*}
+\begin{split}
+\mathcal{T}\{\prod_{k=1}^{m}\phi(x_{k})\}&= N\{\prod_{k=1}^{m}\phi(x_{k})\}+
+\sum_{\alpha,\beta}\wick{\c\phi(x_{\alpha}) \c\phi(x_{\beta})}
+N\{\prod_{k\neq\alpha,\beta}^{m}\phi(x_{k})\}\\
+&+\sum_{(\alpha,\beta),(\gamma,\delta)}\wick{\c1\phi(x_{\alpha}) \c1\phi(x_{\beta})
+\c2\phi(x_{\gamma}) \c2\phi(x_{\delta})}
+N\{\prod_{k\neq\alpha,\beta,\gamma,\delta}^{m}\phi(x_{k})\}  \\
+&+...
+\end{split}
+\end{equation*}
+
+Simplifions notre écriture en faisant
+\begin{equation*} 
+\mathcal{T}\{\phi(x_1)\phi(x_2)\}=\mathcal{T}\{\phi_{1}\phi_{2}\}
+\end{equation*}
+
+Ainsi pour 4 opérateurs de champ, on a:
+\begin{equation*}
+\mathcal{T}\{\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\}
+=\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}
+\end{equation*}
+
+On peut donc écrire de la manière suivante grace au théorème de Wick:
+\begin{equation}
+\begin{split}
+\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}
+&=N\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}
+ +N\{\wick{\c  \phi_{1} \c  \phi_{2}     \phi_{3}     \phi_{4}}\}
+ +N\{\wick{\c  \phi_{1}     \phi_{2} \c  \phi_{3}     \phi_{4}}\}
+ +N\{\wick{\c  \phi_{1}     \phi_{2}     \phi_{3} \c  \phi_{4}}\}\\
+&+N\{\wick{    \phi_{1} \c  \phi_{2} \c  \phi_{3}     \phi_{4}}\}
+ +N\{\wick{    \phi_{1} \c  \phi_{2}     \phi_{3} \c  \phi_{4}}\}
+ +N\{\wick{    \phi_{1}     \phi_{2} \c  \phi_{3} \c  \phi_{4}}\}
+ +N\{\wick{\c1 \phi_{1} \c1 \phi_{2} \c2 \phi_{3} \c2 \phi_{4}}\}\\
+&+N\{\wick{\c1 \phi_{1} \c2 \phi_{2} \c1 \phi_{3} \c2 \phi_{4}}\}
+ +N\{\wick{\c1 \phi_{1} \c2 \phi_{2} \c2 \phi_{3} \c1 \phi_{4}}\}
+\end{split}
+\end{equation}
+
+On définit $N\{\wick{\c\phi_{1}\c\phi_{2}\phi_{3}\phi_{4}}\}$ de telle sorte que:
+\begin{equation*}
+N\{\wick{\c\phi_{1}\c\phi_{2}\phi_{3}\phi_{4}}\}=
+\Delta_{F}(x_{1}-x_{2})\mathds{1}N\{\phi_{3}\phi_{4}\}
+\end{equation*}
+
+Donc on réécrit l'équation (1) comme suit:
+\begin{equation}
+\begin{split}
+\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}&= N\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}
++\Delta_{F}(x_{1}-x_{2})\mathds{1}N\{\phi_{3}\phi_{4}\}
++\Delta_{F}(x_{1}-x_{3})\mathds{1}N\{\phi_{2}\phi_{4}\}\\
+&+\Delta_{F}(x_{1}-x_{4})\mathds{1}N\{\phi_{2}\phi_{3}\}
++\Delta_{F}(x_{2}-x_{3})\mathds{1}N\{\phi_{1}\phi_{4}\}
++\Delta_{F}(x_{2}-x_{4})\mathds{1}N\{\phi_{1}\phi_{3}\}\\
+&+\Delta_{F}(x_{3}-x_{4})\mathds{1}N\{\phi_{1}\phi_{2}\}
++\Delta_{F}(x_{1}-x_{2})\mathds{1}\Delta_{F}(x_{3}-x_{4})\mathds{1}\\
+&+\Delta_{F}(x_{1}-x_{3})\mathds{1}\Delta_{F}(x_{2}-x_{4})\mathds{1}
++\Delta_{F}(x_{1}-x_{4})\mathds{1}\Delta_{F}(x_{2}-x_{3})\mathds{1}
+\end{split}
+\end{equation}
+
+Or on sait que on peut poser:
+\begin{align*}
+\phi_{x}=\phi_{x}^{+}+\phi_{x}^{-}\\
+\phi_{y}=\phi_{y}^{+}+\phi_{y}^{-}
+\end{align*} 
+
+Ce qui nous permet d'écrire d'après le cours:
+\begin{equation}    
+\begin{split}
+\mathcal{T}\{\phi_{x}\phi_{y}\}=\Theta(x^{0}-y^{0})([\phi_{x}^{+},\phi_{y}^{-}] 
++N'\{\phi_{x}\phi_{y}\})+\Theta(y^{0}-x^{0})([\phi_{y}^{+},\phi_{x}^{-}]
++N'\{\phi_{y}\phi_{x}\})
+\end{split}
+\end{equation}
+
+Aussi que:
+\begin{equation}
+\Delta_{F}(x-y)=\Theta(x^{0}-y^{0}) \braket{0}{[\phi_{x}^{+}\phi_{y}^{-}]|0}+
+\Theta(y^{0}-x^{0}) \braket{0}{[\phi_{y}^{+}\phi_{x}^{-}]|0}
+\end{equation}
+
+On peut identifier les équations (3) et (4) pour obtenir:
+\begin{equation}
+\mathcal{T}\{\phi_{x}\phi_{y}\}= \Delta_{F}(x-y)\mathds{1}+N'\{\phi_{x}\phi_{y}\}
++N'\{\phi_{y}\phi_{x}\}
+\end{equation}
+
+Où on définit $N'\{\phi_{y}\phi_{x}\}$ comme le normal ordering de $\phi_{y}\phi_{x}$
+sans les termes $\phi_{x}^{+}\phi_{y}^{-}$ et avec un terme en plus $\phi_{y}^{-}\phi_{x}^{+}$.
+
+
+Ainsi chaque terme de l'équation (2) peut s'écrire comme suit:
+\begin{align*}
+\Delta_{F}(x_{1}-x_{2})\mathds{1}=
+\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N'\{\phi_{1}\phi_{2}\}
+-\Theta(x_{2}-x_{1})N'\{\phi_{2}\phi_{1}\}\\
+\Delta_{F}(x_{1}-x_{3})\mathds{1}=
+\mathcal{T}\{\phi_{1}\phi_{3}\}-\Theta(x_{1}-x_{3})N'\{\phi_{1}\phi_{3}\}
+-\Theta(x_{3}-x_{1})N'\{\phi_{3}\phi_{1}\}\\
+\Delta_{F}(x_{1}-x_{4})\mathds{1}=
+\mathcal{T}\{\phi_{1}\phi_{4}\}-\Theta(x_{1}-x_{4})N'\{\phi_{1}\phi_{4}\}
+-\Theta(x_{4}-x_{1})N'\{\phi_{4}\phi_{1}\}\\
+\Delta_{F}(x_{2}-x_{3})\mathds{1}=
+\mathcal{T}\{\phi_{2}\phi_{3}\}-\Theta(x_{2}-x_{3})N'\{\phi_{2}\phi_{3}\}
+-\Theta(x_{3}-x_{2})N'\{\phi_{3}\phi_{2}\}\\
+\Delta_{F}(x_{2}-x_{4})\mathds{1}=
+\mathcal{T}\{\phi_{2}\phi_{4}\}-\Theta(x_{2}-x_{4})N'\{\phi_{2}\phi_{4}\}
+-\Theta(x_{4}-x_{2})N'\{\phi_{4}\phi_{2}\}\\
+\Delta_{F}(x_{3}-x_{4})\mathds{1}=
+\mathcal{T}\{\phi_{3}\phi_{4}\}-\Theta(x_{3}-x_{4})N'\{\phi_{3}\phi_{4}\}
+-\Theta(x_{4}-x_{3})N'\{\phi_{4}\phi_{3}\}\\
+\end{align*}
+
+Prenons pour exemple le second terme du membre de droite de l'équation (2):
+\begin{equation*}
+\Delta_{F}(x_{1}-x_{2})\mathds{1}N\{\phi_{3}\phi_{4}\}=
+(\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N'\{\phi_{1}\phi_{2}\}
+-\Theta(x_{2}-x_{1})N'\{\phi_{2}\phi_{1}\})(N\{\phi_{3}\phi_{4}\})
+\end{equation*}
+
+Or de par la définition du normal ordering, on sait que les termes contenant les normal ordering disparaissent sous $\braket{0}{.|0}$, donc on a:
+\begin{equation}
+    \braket{0}{\Delta_{F}(x_{1}-x_{2})\mathds{1}N\{\phi_{3}\phi_{4}\}|0}=0
+\end{equation}
+
+Donc si on effectue le calcul $\braket{0}{.\mathcal{T}\{\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\}|0}$ et en tenant compte de (6),on obtient:
+\begin{equation}
+\begin{split}
+&\bra{0}\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}\ket{0}\\
+&=\bra{0}(\mathcal{T}\{\phi_{1}\phi_{2}\}-\Theta(x_{1}-x_{2})N'\{\phi_{1}\phi_{2}\}
+-\Theta(x_{2}-x_{1})N'\{\phi_{2}\phi_{1}\})\times{}\\
+&\quad(\mathcal{T}\{\phi_{3}\phi_{4}\}-\Theta(x_{3}-x_{4})N'\{\phi_{3}\phi_{4}\}
+-\Theta(x_{4}-x_{3})N'\{\phi_{4}\phi_{3}\})\ket{0}\\
+&+\bra{0}(\mathcal{T}\{\phi_{1}\phi_{3}\}-\Theta(x_{1}-x_{3})N'\{\phi_{1}\phi_{3}\}
+-\Theta(x_{3}-x_{1})N'\{\phi_{3}\phi_{1}\})\times{}\\
+&\quad(\mathcal{T}\{\phi_{2}\phi_{4}\}-\Theta(x_{2}-x_{4})N'\{\phi_{2}\phi_{4}\}
+-\Theta(x_{4}-x_{2})N'\{\phi_{4}\phi_{2}\})\ket{0}\\
+&+\bra{0}(\mathcal{T}\{\phi_{1}\phi_{4}\}-\Theta(x_{1}-x_{4})N'\{\phi_{1}\phi_{4}\}
+-\Theta(x_{4}-x_{1})N'\{\phi_{4}\phi_{1}\})\times{}\\
+&\quad(\mathcal{T}\{\phi_{2}\phi_{3}\}-\Theta(x_{2}-x_{3})N'\{\phi_{2}\phi_{3}\}
+-\Theta(x_{3}-x_{2})N'\{\phi_{3}\phi_{2}\})\ket{0}
+\end{split}
+\end{equation}
+
+En nous rappelant que les termes contenant les normal ordering disparaissent sous $\braket{0}{.|0}$, on obtient:
+\begin{equation}
+\begin{split}
+&\bra{0}\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}\ket{0}\\
+&=\bra{0}\mathcal{T}\{\phi_{1}\phi_{2}\}\mathcal{T}\{\phi_{3}\phi_{4}\}\ket{0}\\
+&+\bra{0}\mathcal{T}\{\phi_{1}\phi_{3}\}\mathcal{T}\{\phi_{2}\phi_{4}\}\ket{0}\\
+&+\bra{0}\mathcal{T}\{\phi_{1}\phi_{4}\}\mathcal{T}\{\phi_{2}\phi_{3}\}\ket{0}
+\end{split}
+\end{equation}
+
+On peut regrouper chaque terme sous $\braket{0}{.|0}$ pour obtenir:
+\begin{equation}
+\begin{split}
+&\bra{0}\mathcal{T}\{\phi_{1}\phi_{2}\phi_{3}\phi_{4}\}\ket{0}\\
+&=\bra{0}(\mathcal{T}\{\phi_{1}\phi_{2}\}\mathcal{T}\{\phi_{3}\phi_{4}\}
++\mathcal{T}\{\phi_{1}\phi_{3}\}\mathcal{T}\{\phi_{2}\phi_{4}\}
++\mathcal{T}\{\phi_{1}\phi_{4}\}\mathcal{T}\{\phi_{2}\phi_{3}\})\ket{0}
+\end{split}
+\end{equation}
+
+Finalement, on obtient le résultat attendu qui est :
+\begin{equation}
+\mathcal{T}\{\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\}=
+\mathcal{T}\{\phi_{1}\phi_{2}\}\mathcal{T}\{\phi_{3}\phi_{4}\}
++\mathcal{T}\{\phi_{1}\phi_{3}\}\mathcal{T}\{\phi_{2}\phi_{4}\}
++\mathcal{T}\{\phi_{1}\phi_{4}\}\mathcal{T}\{\phi_{2}\phi_{3}\}
+\end{equation}  
+
+\end{document}
+
